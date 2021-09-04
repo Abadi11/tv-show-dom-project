@@ -7,9 +7,6 @@ function setup() {
 }
 
 function makePageForEpisodes(episodeList) {
-  
-  //rootElem.textContent = `Got ${episodeList.length} episode(s)`;
-
   episodeList.forEach(createCard)
 }
 
@@ -41,7 +38,6 @@ function createCard(episode){
   divContainer.appendChild(divImg);
   divContainer.appendChild(divSummary);
   rootElem.appendChild(divContainer);
-
 }
 
 window.onload = setup;
