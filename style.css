@@ -23,7 +23,9 @@
   border: black 2px solid;
   width: 100%;
   border-radius: 10px
+  
 }
+
 
 .img{
   padding-top: 30px;
@@ -41,4 +43,20 @@ a{
 }
 a:hover{
   color: blue;
+}
+
+.search{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 20px;
+  font-size: 1.5rem;
+}
+.search p {
+  margin-left: 20px;
+}
+.search input{
+  width: 25%;
+  height: 50px;
+  font-size: 1.5rem;
 }

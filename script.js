@@ -1,12 +1,14 @@
 //You can edit ALL of the code here
 const rootElem = document.getElementById("root");
+const allEpisodes = getAllEpisodes();
 
 function setup() {
-  const allEpisodes = getAllEpisodes();
+  
   makePageForEpisodes(allEpisodes);
 }
 
 function makePageForEpisodes(episodeList) {
+  rootElem.replaceChildren([]);
   episodeList.forEach(createCard)
 }
 
@@ -38,6 +40,39 @@ function createCard(episode){
   divContainer.appendChild(divImg);
   divContainer.appendChild(divSummary);
   rootElem.appendChild(divContainer);
+}
+
+// level 200 addEventListener
+let inputId = document.getElementById("search");
+inputId.addEventListener("keyup",function (){
+  //console.log(inputId.value)
+  let searchedContent = allEpisodes.filter((episode) => {
+    //console.log(episode.name)
+    if (episode.name.toLowerCase().includes(inputId.value.toLowerCase()) || episode.summary.toLowerCase().includes(inputId.value.toLowerCase())){
+      return true
+    }
+    
+  });
+  //console.log(searchedContent)
+  let divSearch = document.querySelector(".search");
+  let resultOfSearch = document.createElement("p");
+  resultOfSearch.setAttribute("id","paragraph")
+  //console.log("1: ", resultOfSearch)
+  resultOfSearch.innerText = `Displaying ${searchedContent.length}/${allEpisodes.length} episodes`;
+  if (inputId.value.length > 1){
+    displayingEpisodes (searchedContent,allEpisodes)
+  }
+  
+  divSearch.appendChild(resultOfSearch);
+  makePageForEpisodes(searchedContent);
+});
+
+function displayingEpisodes (result,total){
+  let idParagraph = document.getElementById("paragraph")
+  idParagraph.remove();
+  let resultOfSearch = document.createElement("p");
+  resultOfSearch.innerText = `Displaying ${result.length}/${total.length} episodes`
+  //console.log("2: ", resultOfSearch)
 }
 
 window.onload = setup;
