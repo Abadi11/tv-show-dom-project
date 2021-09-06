@@ -43,6 +43,7 @@ function createCard(episode){
 }
 
 // level 200 addEventListener
+
 let inputId = document.getElementById("search");
 inputId.addEventListener("keyup",function (){
   //console.log(inputId.value)
@@ -55,24 +56,21 @@ inputId.addEventListener("keyup",function (){
   });
   //console.log(searchedContent)
   let divSearch = document.querySelector(".search");
-  let resultOfSearch = document.createElement("p");
-  resultOfSearch.setAttribute("id","paragraph")
-  //console.log("1: ", resultOfSearch)
-  resultOfSearch.innerText = `Displaying ${searchedContent.length}/${allEpisodes.length} episodes`;
-  if (inputId.value.length > 1){
-    displayingEpisodes (searchedContent,allEpisodes)
-  }
+  let paragraphID = document.getElementById("paragraph");
   
+  let resultOfSearch = document.createElement("p");
+  resultOfSearch.setAttribute("id","paragraph");
+
+  if(inputId.value.length === 0){
+    paragraphID.remove();
+  }else {
+    paragraphID.remove();
+    resultOfSearch.innerText = `Displaying ${searchedContent.length}/${allEpisodes.length} episodes`;
+  }
+
+  //console.log(inputId.value.length)
   divSearch.appendChild(resultOfSearch);
   makePageForEpisodes(searchedContent);
 });
-
-function displayingEpisodes (result,total){
-  let idParagraph = document.getElementById("paragraph")
-  idParagraph.remove();
-  let resultOfSearch = document.createElement("p");
-  resultOfSearch.innerText = `Displaying ${result.length}/${total.length} episodes`
-  //console.log("2: ", resultOfSearch)
-}
 
 window.onload = setup;
