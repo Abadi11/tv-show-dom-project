@@ -44,7 +44,7 @@ function createCard(episode){
 
 // level 200 addEventListener
 
-let inputId = document.getElementById("search");
+let inputId = document.getElementById("searchbar");
 inputId.addEventListener("keyup",function (){
   //console.log(inputId.value)
   let searchedContent = allEpisodes.filter((episode) => {
