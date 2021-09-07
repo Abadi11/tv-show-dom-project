@@ -43,10 +43,12 @@ function createCard(episode){
 }
 
 // level 200 addEventListener
-
+// create addEventListner to input text
 let inputId = document.getElementById("searchbar");
 inputId.addEventListener("keyup",function (){
   //console.log(inputId.value)
+
+  // create a new array with elements that have been researched 
   let searchedContent = allEpisodes.filter((episode) => {
     //console.log(episode.name)
     if (episode.name.toLowerCase().includes(inputId.value.toLowerCase()) || episode.summary.toLowerCase().includes(inputId.value.toLowerCase())){
@@ -55,21 +57,25 @@ inputId.addEventListener("keyup",function (){
     
   });
   //console.log(searchedContent)
+
+  // declare variable to indicate to the div of search bar 
   let divSearch = document.querySelector(".search");
+  //declare variable to indicate to the p of displaying search 
   let paragraphID = document.getElementById("paragraph");
   
-  let resultOfSearch = document.createElement("p");
-  resultOfSearch.setAttribute("id","paragraph");
+  // create a new p after applying remove each time 
+  let newResultOfSearch = document.createElement("p");
+  newResultOfSearch.setAttribute("id","paragraph");
 
   if(inputId.value.length === 0){
     paragraphID.remove();
   }else {
     paragraphID.remove();
-    resultOfSearch.innerText = `Displaying ${searchedContent.length}/${allEpisodes.length} episodes`;
+    newResultOfSearch.innerText = `Displaying ${searchedContent.length}/${allEpisodes.length} episodes`;
   }
 
   //console.log(inputId.value.length)
-  divSearch.appendChild(resultOfSearch);
+  divSearch.appendChild(newResultOfSearch);
   makePageForEpisodes(searchedContent);
 });
 
