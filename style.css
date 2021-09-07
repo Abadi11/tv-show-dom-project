@@ -44,13 +44,16 @@ a{
 a:hover{
   color: blue;
 }
-
+/*
+search section
+*/
 .search{
   display: flex;
   flex-direction: row;
   justify-content: center;
   padding: 20px;
   font-size: 1.5rem;
+  width: 100%;
 }
 .search p {
   margin-left: 20px;
@@ -59,4 +62,17 @@ a:hover{
   width: 25%;
   height: 50px;
   font-size: 1.5rem;
+  margin: 0 30px;
+}
+
+#select-options{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 33%;
+}
+#select-options select{
+  font-size: 20px;
+  width: 100%;
+  height: 50%;
 }
