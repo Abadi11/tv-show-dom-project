@@ -91,20 +91,15 @@ function selectAllEpisodes (episode){
   selectEl.appendChild(newOption)
 }
 
-// Select with addEventListner
-let selectId = document.querySelector("select");
-//console.log("0000", selectId)
-selectId.addEventListener("change", function(){
 
+let selectId = document.querySelector("select");
+
+selectId.addEventListener("change", function(){
 let optionsElements = document.querySelectorAll("option");
 let names=[]
 optionsElements.forEach((option) => names.push(option.value));
-//console.log(names)
 let selectedName = names.filter((name) => selectId.value === name);
-//console.log(selectedName)
-
 let oneEpisode = allEpisodes.filter((episode) => episode.name == selectedName)
-//console.log(oneEpisode)
 
 if (oneEpisode.length === 1){
   makePageForEpisodes(oneEpisode);
