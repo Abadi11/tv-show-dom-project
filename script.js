@@ -6,7 +6,7 @@ getEpisodes("https://api.tvmaze.com/shows/82/episodes")
 console.log(allEpisodes.length)
 function getEpisodes (episodesURL){
   //console.log("kkk")
-  let allEpisodesFetch = fetch(episodesURL).then(response => response.json()).then(episodes => {
+  fetch(episodesURL).then(response => response.json()).then(episodes => {
   episodes.forEach(episode => allEpisodes.push(episode));
 })
 //let allEpisodes = JSON.parse(allEpisodesFetch);
