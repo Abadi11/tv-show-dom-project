@@ -2,9 +2,35 @@
 const rootElem = document.getElementById("root");
 //const allEpisodes = getAllEpisodes();
 //const allEpisodes = [];
+//level 400
+const shows = getAllShows();
+console.log("shows", shows)
+function showsSelectCreate (showsList){
+  showsList.forEach(createShow)
+  eventListnerForShows(showsList)
+}
+showsSelectCreate (shows)
+function createShow(show){
+  let selectEl = document.getElementById("shows");
+  let newOption = document.createElement("option");
+  newOption.value = show.name;
+  newOption.innerText = show.name
+  selectEl.appendChild(newOption)
+}
 
-async function catchEpisodes (){
-  const response = await fetch("https://api.tvmaze.com/shows/82/episodes");
+function eventListnerForShows(shows){
+  let selectId = document.getElementById("shows");
+  selectId.addEventListener("change", function(){
+  let optionsElements = document.querySelectorAll("option");
+  let names=[]
+  optionsElements.forEach((option) => names.push(option.value));
+  let selectedName = names.filter((name) => selectId.value === name);
+  let oneShow = shows.filter((show) => show.name == selectedName)
+
+  //console.log("id: ", oneShow[0].id)
+    let id = oneShow[0].id;
+    async function catchEpisodes (id){
+  const response = await fetch(`https://api.tvmaze.com/shows/${id}/episodes`);
   const episodes = await response.json();
   
   
@@ -12,7 +38,11 @@ async function catchEpisodes (){
   eventInSearchBar (episodes)
   selectOptionElement (episodes);
 }
-catchEpisodes ().catch(error => {console.error(error)});
+catchEpisodes (id).catch(error => {console.error(error)});
+  });
+  
+}
+
 
 /*
 fetch("https://api.tvmaze.com/shows/82/episodes").then(response => response.json()).then(episodes => {
@@ -130,7 +160,7 @@ function selectAllEpisodes (episode){
 }
 
 function eventInSelectElement (episodes){
-let selectId = document.querySelector("select");
+let selectId = document.getElementById("episodes");
 
 selectId.addEventListener("change", function(){
 let optionsElements = document.querySelectorAll("option");
@@ -147,7 +177,6 @@ if (oneEpisode.length === 1){
 
 });
 }
-
 
 
 window.onload = setup;

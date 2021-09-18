@@ -10,13 +10,17 @@
 
   <body>
     <div class="search">
+      <div>
+        <select name="shows" id="shows">
+          <option value="non-option">All shows</option>
+        </select>
+      </div>
       <div id="select-options">
-        <label for="episodes">Choose an Episode</label>
         <select name="episodes" id="episodes">
           <option value="non-option">All Episodes</option>
         </select>
       </div>
-      <input type="text" name="search" id="searchbar" >
+      <input type="text" name="search" id="searchbar" placeholder="Your search item...">
       <p id="paragraph"></p>
     </div>
     
@@ -29,7 +33,7 @@
     </footer>
     <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->
     <script src="episodes.js"></script>
-
+    <script src="shows.js"></script>
     <!-- Loads YOUR javascript code -->
     <script src="script.js"></script>
   </body>
