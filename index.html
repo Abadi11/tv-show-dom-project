@@ -9,24 +9,40 @@
   </head>
 
   <body>
-    <div class="search">
-      <div>
-        <select name="shows" id="shows">
-          <option value="non-option">All shows</option>
-        </select>
+    <header>
+      <div id="nav-container">
+        <div id="logo">
+          <img src="./images/logo-tv.jpg" alt="tvShow-logo">
+          <p>Tv shows</p>
+        </div>
+        <div id="div-shows">
+          <select name="shows" id="shows">
+            <!-- <option value="non-option">All shows</option> -->
+          </select>
+        </div>
       </div>
-      <div id="select-options">
-        <select name="episodes" id="episodes">
-          <option value="non-option">All Episodes</option>
-        </select>
-      </div>
-      <input type="text" name="search" id="searchbar" placeholder="Your search item...">
-      <p id="paragraph"></p>
-    </div>
+    </header>
     
-    <div id="root" class="root">
-    </div>
-
+    <main>
+      <section>
+        <div class="search">
+        <div id="select-options">
+          <select name="episodes" id="episodes">
+            <option value="non-option" id="non-option">All Episodes</option>
+          </select>
+        </div>
+        <input type="text" name="search" id="searchBox" placeholder="Your search item...">
+        <p id="paragraph"></p>
+      </div>
+      </section>
+      
+      <section>
+        <div id="root" class="root">
+      </div>
+      </section>
+      
+    </main>
+    
 
     <footer>
       <a href="https://www.tvmaze.com/">© TVmaze.com</a>

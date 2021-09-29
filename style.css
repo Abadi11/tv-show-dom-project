@@ -1,3 +1,38 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Times New Roman', Times, serif;
+}
+header{
+  position: sticky;
+  top: 0;
+  left: 0;
+
+}
+#nav-container{
+  color: gainsboro;
+  background-color: black;
+  font-size: 2rem;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+
+}
+#nav-container #logo{
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+#nav-container img{
+  width: 5rem;
+  margin: 5px;
+}
+#nav-container #div-shows{
+  display: flex;
+  align-items: center;
+}
 
 .root {
   color: black;
