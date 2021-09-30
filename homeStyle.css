@@ -38,7 +38,7 @@ header{
  border: 1px solid gray;
  border-radius: 10px;
  margin: 10px;
- padding: 5px;
+ padding: 10px;
  height: fit-content;
  display: grid;
  grid-template-areas: 
@@ -46,15 +46,16 @@ header{
  'image summary summary div-information';
  grid-gap: 10px;
 }
-
-.container img{
- 
- height: 75%;
- 
- 
-}
 .container h1{
  margin: 20px 0;
+ 
+}
+.container img{
+ height: 75%;
+ height: fit-content;
+}
+.container .summary{
+ 
 }
 .container .div-information{
  border: 1px solid gray;
