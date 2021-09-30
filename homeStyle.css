@@ -29,3 +29,40 @@ header{
 #searchBar input {
  margin: 1rem;
 }
+
+.name { grid-area: name; }
+.image { grid-area: image; }
+.summary { grid-area: summary; }
+.div-information { grid-area: div-information; }
+.container{
+ border: 1px solid gray;
+ border-radius: 10px;
+ margin: 10px;
+ padding: 5px;
+ height: fit-content;
+ display: grid;
+ grid-template-areas: 
+ 'name name name name'
+ 'image summary summary div-information';
+ grid-gap: 10px;
+}
+
+.container img{
+ 
+ height: 75%;
+ 
+ 
+}
+.container h1{
+ margin: 20px 0;
+}
+.container .div-information{
+ border: 1px solid gray;
+ border-radius: 10px;
+ height: fit-content;
+ padding: 10px 20px;
+}
+.container .div-information p{
+ margin-bottom: 2rem;
+}
+
