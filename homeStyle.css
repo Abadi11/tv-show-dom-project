@@ -1,0 +1,31 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Times New Roman', Times, serif;
+}
+header{
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+#search-container{
+ background-color: gray;
+ display: flex;
+ flex-flow: row wrap;
+ justify-content: space-around;
+ align-items: center;
+ width: 100%;
+ height: 5rem;
+}
+#search-container select{
+ 
+ 
+}
+#searchBar{
+ display: flex;
+ align-items: center;
+}
+#searchBar input {
+ margin: 1rem;
+}
