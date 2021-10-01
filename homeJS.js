@@ -153,9 +153,23 @@ function clickOnTheName (shows){
     console.log(findShow);
     let showId = findShow[0].id;
     console.log(showId);
-    // to get the episodes just add episodes to the URL: "https://api.tvmaze.com/shows/showId/episodes" 
+    // to get the episodes just add episodes to the URL: "https://api.tvmaze.com/shows/showId/episodes"
 
+    // link script.js file with this
+    let script = document.createElement("script");
+    script.src = "script.js";
+    document.body.appendChild(script);
+    
+    // link shows.js file with this
+    let scriptShows = document.createElement("script");
+    scriptShows.src = "shows.js";
+    document.body.appendChild(scriptShows);
     // now hid the shows list and present the episodes
+    fetch(`https://api.tvmaze.com/shows/${showId}/episodes`)
+      .then((response) => response.json())
+      .then((episodes) => {
+        makePageForEpisodes(episodes);
+      });
   });
  });
 
