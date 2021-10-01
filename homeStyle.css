@@ -22,11 +22,11 @@ header{
  
  
 }
-#searchBar{
+#searchbox-div{
  display: flex;
  align-items: center;
 }
-#searchBar input {
+#searchbox-div input {
  margin: 1rem;
 }
 

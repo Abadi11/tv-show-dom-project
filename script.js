@@ -160,6 +160,7 @@ function selectOptionElement(episodes) {
   */
   let refreshSelect = document.getElementById("episodes");
   refreshSelect.replaceChildren([]);
+  
   let nonOption = document.createElement("option");
   nonOption.value = "non-option";
   nonOption.innerText = "All Episodes";
@@ -200,6 +201,7 @@ function eventInSelectElement(episodes) {
 
   selectId.addEventListener("change", function () {
     let optionsElements = document.querySelectorAll("option");
+    console.log(optionsElements);
     let names = [];
     optionsElements.forEach((option) => names.push(option.value));
     let selectedName = names.filter((name) => selectId.value === name);
