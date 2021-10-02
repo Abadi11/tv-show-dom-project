@@ -64,43 +64,77 @@ function setup() {
 }
 
 function makePageForEpisodes(episodeList) {
+  // create search box
+  let section = document.createElement("section");
+  rootElem.appendFirstChild(section);
+  let divSearchContainer = document.createElement("div");
+  divSearchContainer.className = "search";
+  section.appendChild(divSearchContainer);
+
+  let divSelectContainer = document.createElement("div");
+  divSelectContainer.id = "select-options";
+  section.appendChild(divSelectContainer);
+  /*
+  create drop down list for episodes
+  let select = document.createElement("select");
+  select.id = "episodes";
+  section.appendChild(select);
+
+  let option = document.createElement("option");
+  option.value = "non-option";
+  option.id = "non-option";
+  option.innerText = "All Episodes"
+  select.appendChild(option) */
+
+  let inputId = document.createElement("input");
+  inputId.type = "text";
+  inputId.id = "searchBox";
+  inputId.placeholder = "Your search item...";
+  section.appendChild(inputId);
+
+  let paragraphID = document.createElement("p");
+  paragraphID.id = "paragraph";
+  section.appendChild(paragraphID);
+  
   rootElem.replaceChildren([]);
   episodeList.forEach(createCard);
+  function createCard(episode) {
+    let divContainer = document.createElement("div");
+    divContainer.setAttribute("class", "container");
+
+    let divName = document.createElement("div");
+    divName.setAttribute("class", "name");
+    divName.innerText = `S${episode.season
+      .toString()
+      .padStart(2, "0")}E${episode.number.toString().padStart(2, "0")} - ${
+      episode.name
+    }`;
+
+    let divImg = document.createElement("div");
+    divImg.setAttribute("class", "img");
+    let imgEl = document.createElement("img");
+    imgEl.src = episode.image.medium;
+    divImg.appendChild(imgEl);
+
+    let divSummary = document.createElement("div");
+    divSummary.setAttribute("class", "summary");
+    let pEl = document.createElement("p");
+    pEl.innerHTML = episode.summary;
+    divSummary.appendChild(pEl);
+
+    divContainer.appendChild(divName);
+    divContainer.appendChild(divImg);
+    divContainer.appendChild(divSummary);
+    rootElem.appendChild(divContainer);
+  }
 }
 
-function createCard(episode) {
-  let divContainer = document.createElement("div");
-  divContainer.setAttribute("class", "container");
 
-  let divName = document.createElement("div");
-  divName.setAttribute("class", "name");
-  divName.innerText = `S${episode.season
-    .toString()
-    .padStart(2, "0")}E${episode.number.toString().padStart(2, "0")} - ${
-    episode.name
-  }`;
-
-  let divImg = document.createElement("div");
-  divImg.setAttribute("class", "img");
-  let imgEl = document.createElement("img");
-  imgEl.src = episode.image.medium;
-  divImg.appendChild(imgEl);
-
-  let divSummary = document.createElement("div");
-  divSummary.setAttribute("class", "summary");
-  let pEl = document.createElement("p");
-  pEl.innerHTML = episode.summary;
-  divSummary.appendChild(pEl);
-
-  divContainer.appendChild(divName);
-  divContainer.appendChild(divImg);
-  divContainer.appendChild(divSummary);
-  rootElem.appendChild(divContainer);
-}
 
 // level 200 addEventListener
 
 function eventInSearchBox(episodes) {
+  
   // create addEventListner to input text
   let paragraphID = document.getElementById("paragraph");
   paragraphID.innerText = `Displaying ${episodes.length}/${episodes.length} episodes`;
