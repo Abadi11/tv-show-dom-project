@@ -65,36 +65,38 @@ function setup() {
 
 function makePageForEpisodes(episodeList) {
   // create search box
+  
   let section = document.createElement("section");
-  rootElem.appendFirstChild(section);
+  rootElem.insertBefore(section, rootElem.childNodes[0]);
+  
   let divSearchContainer = document.createElement("div");
   divSearchContainer.className = "search";
   section.appendChild(divSearchContainer);
 
   let divSelectContainer = document.createElement("div");
   divSelectContainer.id = "select-options";
-  section.appendChild(divSelectContainer);
-  /*
-  create drop down list for episodes
+  divSearchContainer.appendChild(divSelectContainer);
+  
+  //create drop down list for episodes
   let select = document.createElement("select");
   select.id = "episodes";
-  section.appendChild(select);
+  divSelectContainer.appendChild(select);
 
   let option = document.createElement("option");
   option.value = "non-option";
   option.id = "non-option";
   option.innerText = "All Episodes"
-  select.appendChild(option) */
+  select.appendChild(option) 
 
   let inputId = document.createElement("input");
   inputId.type = "text";
   inputId.id = "searchBox";
   inputId.placeholder = "Your search item...";
-  section.appendChild(inputId);
+  divSearchContainer.appendChild(inputId);
 
   let paragraphID = document.createElement("p");
   paragraphID.id = "paragraph";
-  section.appendChild(paragraphID);
+  divSearchContainer.appendChild(paragraphID);
   
   rootElem.replaceChildren([]);
   episodeList.forEach(createCard);
