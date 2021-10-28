@@ -183,5 +183,5 @@ function clickOnTheName (shows){
  });
 
 }
-
+// solution: https://github.com/CodeYourFuture/TV-Show-DOM-Project-Solution
 window.onload = setup;
